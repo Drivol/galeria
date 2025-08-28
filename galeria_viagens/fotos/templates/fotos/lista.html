@@ -4,52 +4,57 @@
   <meta charset="UTF-8">
   <title>Galeria de Viagens</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-r from-blue-50 to-indigo-100 min-h-screen">
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-md">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl font-bold tracking-wide">🌍 Galeria de Viagens</h1>
-      <a href="/admin" class="text-sm bg-white/20 px-4 py-2 rounded-lg hover:bg-white/30 transition">
+<body class="bg-gradient-to-br from-indigo-50 to-blue-200 min-h-screen font-sans text-gray-800">
+
+  <header class="bg-gradient-to-r from-indigo-700 to-blue-900 text-white shadow-xl">
+    <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-wider">🌍 Galeria de Viagens</h1>
+      <a href="/admin" class="text-sm bg-white/20 px-4 py-2 rounded-full hover:bg-white/30 transition transform hover:scale-105">
         Admin
       </a>
     </div>
   </header>
 
-  <!-- Conteúdo principal -->
-  <main class="container mx-auto px-6 py-8">
-    <!-- Barra de pesquisa -->
-    <form method="get" class="flex justify-center mb-10">
+  <main class="container mx-auto px-6 py-12 animate-fadeIn">
+    <form method="get" class="flex justify-center mb-12">
       <input type="text" name="q" placeholder="Buscar fotos..."
-             class="w-2/3 md:w-1/2 p-3 rounded-l-lg border border-gray-300 focus:ring-2 focus:ring-indigo-400 outline-none">
+             class="w-2/3 md:w-1/2 p-4 rounded-l-full border-2 border-indigo-400 focus:ring-4 focus:ring-indigo-500/50 outline-none transition duration-300">
       <button type="submit" 
-              class="bg-indigo-600 text-white px-5 py-3 rounded-r-lg hover:bg-indigo-700 transition">
+              class="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-8 py-4 rounded-r-full hover:from-indigo-700 hover:to-blue-700 transition transform hover:scale-105">
         🔍 Buscar
       </button>
     </form>
 
-    <!-- Grid de fotos -->
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {% for foto in fotos %}
-        <div class="bg-white shadow-lg rounded-xl overflow-hidden transform hover:scale-105 transition">
+        <div class="bg-white shadow-2xl rounded-2xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
           <a href="{% url 'detalhe_foto' foto.id %}">
             <img src="{{ foto.imagem.url }}" alt="{{ foto.titulo }}" 
-                 class="w-full h-56 object-cover">
-            <div class="p-5">
-              <h2 class="text-xl font-bold text-gray-800">{{ foto.titulo }}</h2>
-              <p class="text-sm text-gray-600">📍 {{ foto.local }}</p>
-              <p class="text-xs text-gray-400 mt-1">📅 {{ foto.data_viagem }}</p>
+                 class="w-full h-64 object-cover filter saturate-75 hover:saturate-150 transition-all duration-500">
+            <div class="p-6">
+              <h2 class="text-xl font-bold tracking-wide text-gray-900">{{ foto.titulo }}</h2>
+              <p class="text-sm text-gray-600 mt-2">📍 {{ foto.local }}</p>
+              <p class="text-xs text-gray-500 mt-1">📅 {{ foto.data_viagem }}</p>
             </div>
           </a>
         </div>
       {% empty %}
-        <p class="col-span-3 text-center text-gray-500">Nenhuma foto encontrada.</p>
+        <p class="col-span-full text-center text-gray-500 text-lg p-10">Nenhuma foto encontrada.</p>
       {% endfor %}
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white text-center py-4 mt-10">
+  <footer class="bg-gradient-to-r from-gray-900 to-gray-800 text-gray-400 text-center py-6 mt-16">
     <p>&copy; {{ now|date:"Y" }} 🌍 Todos os direitos reservados ao Kauã.</p>
   </footer>
 </body>
