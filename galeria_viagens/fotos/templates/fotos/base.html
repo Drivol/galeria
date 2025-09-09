@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    {% block meta %}{% endblock meta %}
+
+    <title>{% block title %}Minha Aplicação{% endblock title %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    {% block extra_css %}{% endblock extra_css %}
+  </head>
+  <body class="bg-gradient-to-br from-indigo-50 to-blue-200 min-h-screen font-sans text-gray-800">
+
+    <header class="bg-gradient-to-r from-indigo-700 to-blue-900 text-white shadow-xl">
+      <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+        <h1 class="text-3xl md:text-4xl font-extrabold tracking-wider">🌍 Galeria de Viagens</h1>
+        <a href="/admin" class="text-sm bg-white/20 px-4 py-2 rounded-full hover:bg-white/30 transition transform hover:scale-105">
+          Admin
+        </a>
+      </div>
+    </header>
+
+    <main id="content" class="container mx-auto px-6 py-12">
+      {% block content %}
+      <div class="text-center p-10">
+        <h1 class="text-3xl font-bold">Conteúdo Principal</h1>
+        <p class="mt-4 text-lg">Este conteúdo será substituído pelas páginas filhas.</p>
+      </div>
+      {% endblock content %}
+    </main>
+
+    <footer class="bg-gradient-to-r from-gray-900 to-gray-800 text-gray-400 text-center py-6 mt-16">
+      <p>&copy; {% now "Y" %} 🌍 Todos os direitos reservados.</p>
+      {% block footer_extra %}{% endblock footer_extra %}
+    </footer>
+
+    {% block extra_js %}{% endblock extra_js %}
+  </body>
+</html>
