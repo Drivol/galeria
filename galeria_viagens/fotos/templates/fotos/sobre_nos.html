@@ -1,0 +1,33 @@
+{% extends 'fotos/base.html'%}
+
+{%block content%}
+<div class="container mx-auto mt-8 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl overflow-hidden">
+
+        <div class="p-8 text-center bg-gray-100 dark:bg-gray-700">
+            <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Sobre Nós</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Bem-vindo ao **Galeria DE VIAGENS**! Nossa
+                paixão é a exploração e a celebração das belezas do mundo através da fotografia de viagens.</p>
+        </div>
+
+        <div class="p-8 lg:p-12 grid lg:grid-cols-2 gap-8 items-center">
+            <div class="text-gray-600 dark:text-gray-300 space-y-4">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Nossa Paixão, Nossa Missão</h2>
+                <p>Aqui, você encontrará uma vasta coleção de fotos cuidadosamente selecionadas e testadas, que
+                    celebram a diversidade das belezas do mundo. De paisagens deslumbrantes a retratos cativantes,
+                    cada imagem conta uma história única e inspiradora.</p>
+            </div>
+        </div>
+
+        <div class="p-8 lg:p-12 text-center bg-gray-50 dark:bg-gray-700">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Junte-se á Nossa Comunidade</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 max-w-3xl mx-auto">Compartilhe suas experiências, suas dicas
+                e suas criações. Vamos juntos embarcar nessa jornada deliciosa, onde cada receita é uma nova aventura e
+                cada prato uma nova descoberta.</p>
+            <a href="{% url 'home'%}"
+                class="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-blue-600
+                transition-colors duration-300 transform hover:-translate-y-1">Explore Nossas Fotos</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
